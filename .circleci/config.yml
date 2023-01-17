@@ -23,8 +23,8 @@ jobs:
     steps:
       - checkout
       - run:
-        name: "Say World"
-        command: echo "World"
+          name: "Say World"
+          command: echo "World"
 
 
 # Invoke jobs via workflows
@@ -34,4 +34,5 @@ workflows:
     jobs:
       - print-hello
       - print-world:
-          requires: [print-hello]
+          requires:
+            - print-hello
