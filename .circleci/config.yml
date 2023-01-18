@@ -25,6 +25,14 @@ jobs:
       - run:
           name: "Say World"
           command: echo "World"
+  print_env:
+    docker:
+      - image: circleci/node:13.8.0
+      steps:
+        - checkout
+        - run:
+            name: "Print Project Environment Variable"
+            command: echo $MY_NAME
 
 
 # Invoke jobs via workflows
@@ -36,3 +44,4 @@ workflows:
       - print-world:
           requires:
             - print-hello
+      - print_env
