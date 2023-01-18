@@ -28,11 +28,11 @@ jobs:
   print_env:
     docker:
       - image: circleci/node:13.8.0
-      steps:
-        - checkout
-        - run:
-            name: "Print Project Environment Variable"
-            command: echo $MY_NAME
+    steps:
+      - checkout
+      - run:
+          name: "Print Project Environment Variable"
+          command: echo $MY_NAME
 
 
 # Invoke jobs via workflows
