@@ -27,11 +27,21 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: cat ~/output.txt
+      - run: exit 1
+
   use_command:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - print_pipeline_id
+
+  handles_errors:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run:
+          command: echo "An Error Occured"
+          when: on_fail
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
